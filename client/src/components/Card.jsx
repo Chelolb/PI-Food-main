@@ -2,7 +2,7 @@ import React from "react";
 
 
 let prevId = 1;
-export default function Card({ image, name, diets }) {
+export default function Card({ image, name, diets, id }) {
    
     return (
         <div className="recipe">

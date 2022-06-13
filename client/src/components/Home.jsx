@@ -4,13 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes } from '../actions';
 import { Link } from 'react-router-dom';
 import Card from './Card';
+import Paged from './paged/Paged';
 
 
 export default function Home() {
     
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.recipes);
-    
+    const[currentPage, setCurrentPage] = useState(1);
+    const[recipePerPage, setRecipePerPage] = useState(9);   // cant. recetas x Pag
+    const indexOfLastRecipe = currentPage * recipePerPage   // ind ultima Pag
+    const indexOfFirstRecipe = indexOfLastRecipe - recipePerPage // ind primer Pag
+    const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+
+
     useEffect (()=>{
         dispatch(getRecipes())
     },[dispatch])
@@ -19,6 +30,7 @@ export default function Home() {
         e.preventDefault();
         dispatch(getRecipes());
     }
+
 
     return (
         <div>
@@ -53,9 +65,13 @@ export default function Home() {
                     <option value="low fodmap">Low FODMAP</option>
                     <option value="whole 30">Whole30</option>
                     <option value="dairy free">Dairy Free</option>
-                </select>
-        {
-            allRecipes && allRecipes?.map((e) =>{
+            </select>
+            <Paged                         // paginado
+                recipePerPage ={recipePerPage}
+                allRecipes = {allRecipes.length}
+                paginado = {paginado}
+            />
+            {currentRecipes?.map((e) =>{    // despliege de recetas
                 return(
                 <Fragment>
                       

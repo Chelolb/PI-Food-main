@@ -6,7 +6,7 @@ const RecipeFormater = require("../controllers/FormatRecipe");
 async function recipeNoName() {
   try {
     let result = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=20&apiKey=${API_KEY}`
+      `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=${API_KEY}`
       );
     let resolve = [];
     if (result.data.results) {
