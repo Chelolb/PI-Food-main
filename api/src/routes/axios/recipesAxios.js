@@ -6,7 +6,7 @@ const RecipeFormater = require("../controllers/FormatRecipe");
 async function recipeNoName() {
   try {
     let result = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=${API_KEY}`
+     `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&apiKey=${API_KEY}`
       );
     let resolve = [];
     if (result.data.results) {
@@ -25,7 +25,7 @@ async function recipeNoName() {
     }
   } catch (error) {
     console.log("error in axios No name");
-    res.status(400).json({error: 'Error busqueda ApiEx en general'})
+    res.status(400).json({msg: 'Error busqueda ApiEx en general'})
   }
 }
 
@@ -33,7 +33,7 @@ async function recipeNoName() {
 async function recipeName(name) {
   try {
     let result = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${name}&addRecipeInformation=true&number=20&apiKey=${API_KEY}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${name}&addRecipeInformation=true&number=100&apiKey=${API_KEY}`
       );
     let resolve = [];
     if (result.data.results) {
@@ -52,7 +52,7 @@ async function recipeName(name) {
     }
   } catch (error) {
     console.log("error in axios by name");
-    res.status(400).json({error: 'Error busqueda ApiEx por palabra'})
+    res.status(400).json({msg: 'Error busqueda ApiEx por palabra'})
   }
 }
 

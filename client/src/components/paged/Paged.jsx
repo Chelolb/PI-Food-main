@@ -13,7 +13,11 @@ export default function Paged({recipePerPage, allRecipes, paginado}){
             <ul className = 'paginas'>
                 {pageNumbers && pageNumbers.map(number => (
                     <li className='pagina' key={number}>
-                    <a onClick={() => paginado(number)}>{number}</a>
+                        <button className="botonPagina" 
+                                key={number} 
+                                onClick={() => paginado(number)}>{number}
+                        </button>
+                   {/* <a onClick={() => paginado(number)}>{number}</a>    */}
                     </li>
                 ))}
 

@@ -19,15 +19,15 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     score: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
       defaultValue: 0, 
       validate : {
         max: 100,
         min: 0
       }
     }, 
-    healthScore: {
-      type: DataTypes.FLOAT, 
+    healthscore: {
+      type: DataTypes.INTEGER, 
       defaultValue: 0,
       validate: {
         max:100,
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       }
     },
     step: {
-      type: DataTypes.ARRAY(DataTypes.JSON),
+      type: DataTypes.TEXT,
       allowNull: true
     },
     image: {

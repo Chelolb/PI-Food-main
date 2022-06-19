@@ -1,10 +1,10 @@
 const RecipeFormater = function(id,name,score,image,diets) {
-// crea objeto con datos de la receta
+// crea objeto con datos de la receta guardada en bd
 let obj = {
     id: id,
     name: name,
-    image: image,
     score: score,
+    image: image,
     diets: diets,
 };
 

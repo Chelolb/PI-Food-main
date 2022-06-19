@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import LandingPage from './components/LandingPage';
-//import AddRecipe from './components/AddRecipe';
+import AddRecipe from './components/AddRecipe.jsx';
 //import RecipeDetails from './components/RecipeDetails';
 
 
@@ -12,9 +12,9 @@ function App() {
     <div className='App'>    
       <Switch>
         <Route exact path ='/' component={LandingPage}/>
-        <Route path ='/home' component={Home}/>
-{ /*       <Route path='/recipe' exact component={AddRecipe}/>    
-        <Route path='/home/:id' component={RecipeDetails}/>        */  }
+        <Route path ='/home' exact component={Home}/>
+        <Route path ='/recipe' exact component={AddRecipe}/>    
+ {/*}       <Route path='/home/:id' component={RecipeDetails}/>        */  }
       </Switch>    
     </div>
     </BrowserRouter>

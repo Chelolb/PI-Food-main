@@ -14,7 +14,7 @@ router.get("/", async function (req, res) {
   if (!name || name === "" || name === " "){  // Busqueda general...
 
     //... en db  
-    let dbResult = await Recipe.findAll({attributes: [],
+    let dbResult = await Recipe.findAll({attributes: ['id', 'name', 'score', 'image'],
       include: [
         { model: Diet, attributes: ["name"], through: { attributes: [] } },
       ],
