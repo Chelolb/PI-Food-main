@@ -14,7 +14,7 @@ router.get("/", async function (req, res) {
   if (!name || name === "" || name === " "){  // Busqueda general...
 
     //... en db  
-    let dbResult = await Recipe.findAll({attributes: ['id', 'name', 'score', 'image'],
+    let dbResult = await Recipe.findAll({attributes: ['id', 'name', 'summary', 'score', 'healthscore', 'steps', 'image'],
       include: [
         { model: Diet, attributes: ["name"], through: { attributes: [] } },
       ],
@@ -49,7 +49,7 @@ router.get("/", async function (req, res) {
     }
 
     if (total.length === 0)
-      return res.json({ message: `No se encontraron recetas` });
+      return res.json({ msg: `No se encontraron recetas` });
 
     res.json(total);
 
@@ -95,20 +95,20 @@ router.get("/", async function (req, res) {
     //Si no hay recetas con la palabra
     if (total.length === 0)
       return  name !== null
-              ? res.json({ message: `No se encontraron recetas con palabra clave ${name}`})
-              : res.json({ message: `No se encontraron recetas con el criterio buscado`});
+              ? res.json({ msg: `No se encontraron recetas con palabra clave ${name}`})
+              : res.json({ msg: `No se encontraron recetas con el criterio buscado`});
 
     res.json(total);
   } 
 
   } catch (error) {
     console.log("error in get ");
-    res.status(400).json({error: 'Error en lectura listado de Recetas'})
+    res.status(400).json({msg: 'Error en lectura listado de Recetas'})
   }
   
 });
 
-router.get("/:id/", async function (req, res) {// Busqueda por ID...
+router.get("/:id", async function (req, res) {// Busqueda por ID...
   try {
     let { id } = req.params;
     //Las Recetas en BD tiene ID en formato UUIDV4...
@@ -126,7 +126,7 @@ router.get("/:id/", async function (req, res) {// Busqueda por ID...
         ],
       });
       if (dbResult === null)
-        return res.json({ message: "Error buscando por id in DB" });
+        return res.json({ msg: "Error buscando por id in DB" });
 
       let formated = [];
       dbResult.diets.map((e) => formated.push(e["name"]));
@@ -137,9 +137,9 @@ router.get("/:id/", async function (req, res) {// Busqueda por ID...
         score: dbResult["score"],
         image: dbResult["image"],
         diets: formated,
-
+        instructions: dbResult["steps"],
         summary: dbResult["summary"],
-        healthScore: dbResult["healthScore"],
+        healthscore: dbResult["healthscore"],
         steps: dbResult["steps"],
         dishTypes: dbResult["dishTypes"],
       };
@@ -149,12 +149,12 @@ router.get("/:id/", async function (req, res) {// Busqueda por ID...
       
       let apiResult = await recipeId(id);
       return apiResult.length === 0
-        ? res.json({ message: "Error buscando por id en API" })
+        ? res.json({ msg: "Error buscando por id en API" })
         : res.json(apiResult);
     }
   } catch (error) {
-    console.log("error getting by ID",error);
-    res.status(400).json({error: 'Error busqueda por ID'})
+    console.log("error buscando por ID",error);
+    res.status(400).json({msg: 'Error busqueda por ID'})
   }
 });
 

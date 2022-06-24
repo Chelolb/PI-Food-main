@@ -1,0 +1,140 @@
+.addRecipe {    
+    background-image: url('../../images/background2a.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vw;
+    display:flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goBackButton {
+    color: rgb(231, 218, 218);
+    background-color: #5033f3;
+    font-size: 17px;
+    text-align: center;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px rgb(40, 41, 92);
+    cursor: pointer;
+}
+
+.goBackButton:hover {
+    color:#5033f3;
+    background-color: rgb(231, 218, 218);
+}
+
+.title{
+    color: #fdfdfd;
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);
+}
+
+.marcForm {
+    border-radius: 5px;
+    width: 500px;
+    min-height: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25;
+    align-content: space-around;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 3px 3px 5px 1px rgb(40, 41, 92);
+    background-color: rgb(231, 218, 218, 0.7);
+}
+
+
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 3px;
+    color: #160894;
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgba(40, 41, 92);
+}
+
+.submitButton {
+    color: rgb(231, 218, 218);
+    background-color: #5033f3;;
+    font-size: 17px;
+    text-align: center;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px rgb(40, 41, 92);
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    color:#5033f3;;
+    background-color: rgb(231, 218, 218);
+}
+
+.titleDiets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    color: #160894;
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgba(40, 41, 92);
+    margin: 20px 1px 1px 20px;
+}
+
+.checkSelect {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;   
+    flex-wrap: wrap;
+    box-shadow: 3px 3px 5px 1px rgb(40, 41, 92);
+    background-color: rgb(231, 218, 218, 0.7);
+    padding: 5px;
+    width: auto;
+    margin: 10px;
+}   
+
+.checks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+}
+
+.dietTypes {
+    display: flex;
+    flex-direction: column;    
+    color: #160894;
+    font-style: italic;
+    font-weight: 500;
+    background-color: rgb(231, 218, 218, 0.7);
+    box-shadow: 3px 3px 5px 1px rgb(40, 41, 92);
+    padding: 4px;
+}
+
+.errorMsg {
+    border-radius: 5px;
+    background-color: white;
+    font-family: sans-serif;
+    font-weight: 500;    
+    color: #b11005;
+    font-size: 16px;
+    padding: 2px;
+}

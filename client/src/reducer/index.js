@@ -2,7 +2,8 @@
 const initialState = {
     recipes: [],
     allRecipes: [],
-    diets: []
+    diets: [],
+    detail: []
 }
 
 function rootReducer (state = initialState, action){
@@ -87,7 +88,11 @@ function rootReducer (state = initialState, action){
                     ...state,
                     recipes: sortedArr1
                 }
-
+            case 'GET_RECIPE_DETAIL':
+                return{
+                    ...state,
+                    detail: action.payload
+                }
             default:
                 return state;
         }

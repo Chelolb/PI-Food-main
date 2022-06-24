@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
+
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, FilterRecipeByDiets, OrderByName, OrderByScore } from '../actions';
+import { getRecipes, filterRecipeByDiets, orderByName, orderByScore } from '../../actions';
 import { Link } from 'react-router-dom';
-import Card from './card/Card.jsx';
-import Paged from './paged/Paged';
-import SearchBar from './SearchBar/SearchBar';
+import Card from '../card/Card.jsx';
+import Paged from '../paged/Paged';
+import SearchBar from '../searchBar/SearchBar';
+import loading from '../../images/loading.gif';
+import './Home.css';
 
 
 export default function Home() {
@@ -14,10 +16,15 @@ export default function Home() {
     const allRecipes = useSelector((state) => state.recipes);
     const [order, setOrder] = useState('');
     const[currentPage, setCurrentPage] = useState(1);
+    
     const[recipePerPage, setRecipePerPage] = useState(9);   // cant. recetas x Pag
     const indexOfLastRecipe = currentPage * recipePerPage   // ind ultima Pag
     const indexOfFirstRecipe = indexOfLastRecipe - recipePerPage // ind primer Pag
-    const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+
+    let currentRecipes = [];
+    if (allRecipes.length){
+    currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    }
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -28,53 +35,52 @@ export default function Home() {
         dispatch(getRecipes())
     },[dispatch])
 
-    function handleClick(e) {
+    function handleClick(e) {   // Boton refresh
         e.preventDefault();
         dispatch(getRecipes());
     }
 
-    
     function handleDietTypeFilter(e) {
         e.preventDefault();
-        dispatch(FilterRecipeByDiets(e.target.value))
+        dispatch(filterRecipeByDiets(e.target.value))
         setCurrentPage(1);
     }
 
     function handleAlphabeticalSort(e) {
         e.preventDefault();                
-        dispatch(OrderByName(e.target.value))
+        dispatch(orderByName(e.target.value))
         setCurrentPage(1);
         setOrder(`Order ${e.target.value}`);
     }
     
     function handleScoreSort(e) {
         e.preventDefault();                
-        dispatch(OrderByScore(e.target.value));
+        dispatch(orderByScore(e.target.value));
         setCurrentPage(1);
         setOrder(`Order ${e.target.value}`);
     }
 
 
     return (
-        <div>
-            <Link to= '/recipe'><button>Nueva Receta</button></Link>
+        <div className='home'>
+            <Link to= '/recipe'><button className='addButton'>Nueva Receta</button></Link>
             <h1>La fuente de placer para su paladar</h1>
-            <button onClick={e => {handleClick(e)}}>
+            <button className='refreshButton' onClick={e => {handleClick(e)}}>
               Volver a cargar todos los componentes
             </button>
             <SearchBar/>                   {/* barra de busqueda */}
         <div>
-            <select className="select" name="Alfabetico" onChange={e => handleAlphabeticalSort(e)}>
-                    <option disabled selected>Alphabetical</option>
+            <select defaultValue = 'Alphabetical' className="select" name="Alfabetico" onChange={e => handleAlphabeticalSort(e)}>
+                    <option disabled>Alphabetical</option>
                     <option value ='atoz'>A to Z</option>
                     <option value ='ztoa'>Z to A</option>
             </select>
-            <select className="select" name="Numérico" onChange={e => handleScoreSort(e)}>
-                    <option disabled selected>Score</option>
+            <select defaultValue = 'Score' className="select" name="Numérico" onChange={e => handleScoreSort(e)}>
+                    <option disabled>Score</option>
                     <option value ='asc'>From Min to Max</option>
                     <option value ='desc'>From Max to Min</option>
             </select>
-            <select className="select" name="diets" onChange={e => handleDietTypeFilter(e)}>
+            <select  defaultValue = 'Todas' className="select" name="diets" onChange={e => handleDietTypeFilter(e)}>
                     <option value ='todas'>Todas</option>
                     <option value ='gluten free'>Gluten Free</option>
                     <option value ='ketogenic'>Ketogenic</option>
@@ -98,19 +104,29 @@ export default function Home() {
             />
         
         <div className ="allrecipes">
-        {!currentRecipes.length ?
-                <img className='loading' src='' alt='Loadingimg'/>
-            :
-           
+        {!allRecipes.length ?
+        (allRecipes.msg?
+            <div>
+                <h1>{allRecipes.msg}</h1>
+            </div>  :
+                <img className='loading' src={loading} alt='Loading img'/>)
+            : 
             currentRecipes?.map((e) => {    // despliege de recetas
                 return(
-                <Fragment>
-                      
-                    <Card  id = {e.id} image = {e.image} name ={e.name}  diets = {e.diets} score = {e.score}/>
-            
-                </Fragment>
+                <div key = {e.id}>
+                <Link className="linkRecetas" to={`/home/${e.id}`}>      
+                    <Card  
+                        key = {e.id}
+                        id = {e.id} 
+                        image = {e.image} 
+                        name ={e.name}  
+                        diets = {e.diets} 
+                        score = {e.score}
+                    />
+                </Link>
+                </div>
                 );
-            })
+            })  
             }
         </div>
         </div>

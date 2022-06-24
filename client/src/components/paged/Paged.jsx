@@ -17,7 +17,6 @@ export default function Paged({recipePerPage, allRecipes, paginado}){
                                 key={number} 
                                 onClick={() => paginado(number)}>{number}
                         </button>
-                   {/* <a onClick={() => paginado(number)}>{number}</a>    */}
                     </li>
                 ))}
 

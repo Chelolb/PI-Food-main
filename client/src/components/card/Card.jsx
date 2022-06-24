@@ -3,7 +3,7 @@ import './Card.css';
 
 
 let prevId = 1;
-export default function Card({ image, name, diets, id }) {
+export default function Card({id, image, name, diets, score }) {
    
     return (
         <div className="recipe">
@@ -14,10 +14,14 @@ export default function Card({ image, name, diets, id }) {
             <div>
                 <h2 className="recipeName">{name}</h2>            
             </div>
+            <div>
+                <h2 className="recipeScore">Nivel: {score}</h2>            
+                <h2 className= 'titleDiets'> Tipos de Dietas </h2>
+            </div>
             <div className="dietcointainer">
                 {diets?.map(e => {
                     return (
-                        <h5 className="diets" key={prevId++}>{e}</h5>
+                        <p className="diets" key={prevId++}>{e}</p>
                     )
                 })}            
             </div>

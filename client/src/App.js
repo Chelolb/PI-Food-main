@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import LandingPage from './components/LandingPage';
-import AddRecipe from './components/AddRecipe.jsx';
-//import RecipeDetails from './components/RecipeDetails';
+import Home from './components/home/Home';
+import LandingPage from './components/landingPage/LandingPage';
+import AddRecipe from './components/addRecipe/AddRecipe';
+import Detail from './components/detail/Detail';
 
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
     <div className='App'>    
       <Switch>
         <Route exact path ='/' component={LandingPage}/>
-        <Route path ='/home' exact component={Home}/>
-        <Route path ='/recipe' exact component={AddRecipe}/>    
- {/*}       <Route path='/home/:id' component={RecipeDetails}/>        */  }
+        <Route exact path ='/home' component={Home}/>    
+        <Route path ='/home/:id' component={Detail}/>
+        <Route path ='/recipe' exact component={AddRecipe}/>
       </Switch>    
     </div>
     </BrowserRouter>

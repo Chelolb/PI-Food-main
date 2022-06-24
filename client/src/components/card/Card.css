@@ -1,4 +1,56 @@
+.recipe{
+    width: 450px;
+    min-height: 500px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 6px 6px 10px 2px rgb(54, 75, 190);
+    background-color: rgb(231, 218, 218, 0.3);
+}
+
+.recipe:hover{
+    width: 470px;
+    min-height: 550px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 12px 12px 20px 4px rgb(54, 75, 190);
+    background-color: rgb(231, 218, 218, 0.3);
+}
+
 .recipeImg{
     height: auto;
     width: 350px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 1px rgb(54, 75, 190);
+}
+
+.recipeName{
+    color: #fdfdfd;
+    font-size: 18px; 
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+}
+
+.recipeScore{
+    color: #fdfdfd;
+    font-size: 18px; 
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+}
+
+.titleDiets{
+    color: #fdfdfd;
+    font-size: 16px; 
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+}
+
+.diets{
+    color: black;
+    font-size: 16px; 
+    font-style: italic;    
 }

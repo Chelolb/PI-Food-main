@@ -14,7 +14,6 @@ async function recipeNoName() {
         let obj = RecipeFormater(
           item.id,
           item.title,
-          //item.spoonacularScore,
           item.healthScore,
           item.image,
           item.diets
@@ -41,7 +40,6 @@ async function recipeName(name) {
         let obj = RecipeFormater(
           item.id,
           item.title,
-          //item.spoonacularScore,
           item.healthScore,
           item.image,
           item.diets
@@ -92,15 +90,16 @@ async function recipeId(id) {
     summary: text,
     dishTypes: data.dishTypes,
     diets: filtered,
-    healthScore: data.healthScore,
+    healthscore: data.healthScore,
     score: data.spoonacularScore,
+    instructions: data.instructions,
     steps: stepsFormated,
   };
 
   return obj;
 } catch (error) {
     console.log('error axios by id')
-    res.status(400).json({error: 'Error busqueda ApiEx por ID'})
+    res.status(400).json({msg: 'Error busqueda ApiEx por ID'})
     return []
 }
 }

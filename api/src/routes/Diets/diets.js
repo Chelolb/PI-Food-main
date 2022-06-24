@@ -12,7 +12,7 @@ router.get('/', async function(req,res) {
     }
     catch (error) {
         console.log("error in get diets", error);
-        res.status(400).json({error: 'Error en lectura listado de dietas de Base de Datos'})
+        res.status(400).json({msg: 'Error en lectura listado de dietas de Base de Datos'})
     }
 });
 

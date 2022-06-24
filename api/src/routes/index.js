@@ -4,6 +4,7 @@ const { Router } = require('express');
 const recipeG = require('./Recipes/recipeG');
 const diets = require('./Diets/diets');
 const recipeP = require('./Recipes/recipeP');
+
 const router = Router();
 
 // Configurar los routers
