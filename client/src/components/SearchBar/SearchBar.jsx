@@ -15,8 +15,12 @@ export default function SearchBar(){
 
     function Handlesubmit(e){
         e.preventDefault()
-        dispatch(getRecipeByName(name))
-        setName('');
+        if(!name || !isNaN(name)){
+            alert('¡Debe indicar una palabra!');
+        }else{
+            dispatch(getRecipeByName(name))
+            setName('');
+        }
     }
 
     return(
@@ -24,6 +28,7 @@ export default function SearchBar(){
             <input
                 type ='text'
                 placeholder = 'Buscar...'
+                value= {name}
                 onChange={(e) => HandleInputChange(e)}>
 
             </input>

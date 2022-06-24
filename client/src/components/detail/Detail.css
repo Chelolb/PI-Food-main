@@ -44,10 +44,15 @@
     font-size: 18px;    
 }
 
+.ddsh{
+    padding: 25px;
+    text-align: justify;
+}
+
 .dishesanddiets{
     font-family: sans-serif;    
     color:black;
-    font-size: 14px; 
+    font-size: 14px;
 }
 
 .score{
