@@ -9,18 +9,20 @@ export default function Paged({recipePerPage, allRecipes, paginado}){
     }
 
     return(
-        <nav className = 'paginacion'>
-            <ul className = 'paginas'>
-                {pageNumbers && pageNumbers.map(number => (
-                    <li className='pagina' key={number}>
-                        <button className="botonPagina" 
-                                key={number} 
-                                onClick={() => paginado(number)}>{number}
-                        </button>
-                    </li>
-                ))}
+        <div className="fondo">
+            <nav className = 'paginacion'>
+                <ul className = 'paginas'>
+                    {pageNumbers && pageNumbers.map(number => (
+                        <li className='pagina' key={number}>
+                            <button className="botonPagina" 
+                                    key={number} 
+                                    onClick={() => paginado(number)}>{number}
+                            </button>
+                        </li>
+                    ))}
 
-            </ul>
-        </nav>
+                </ul>
+            </nav>
+        </div>
     )
 }

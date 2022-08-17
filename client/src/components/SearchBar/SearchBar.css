@@ -1,8 +1,8 @@
 .botonBuscar{
     height: 20px;
-    width: 50px;
+    width: 100px;
     margin: 4px;
-	box-shadow: 2px 3px 1px rgb(40, 41, 92);
+	box-shadow: 3px 5px 1px rgb(3, 158, 185);
 	padding: 0 20px 4px;
     border-radius: 7px;
 	background-color: rgb(231, 218, 218);
@@ -12,9 +12,9 @@
 
 .botonBuscar:hover{
     height: 20px;
-    width: 50px;
+    width: 100px;
     margin: 4px;
-	box-shadow: 1px 1px 1px rgb(40, 41, 92);
+	box-shadow: 1px 2px 1px rgb(3, 158, 185);
 	padding: 0 20px 4px;
     border-radius: 7px;
 	background-color: rgb(231, 218, 218);

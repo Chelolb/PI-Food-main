@@ -6,25 +6,26 @@ let prevId = 1;
 export default function Card({id, image, name, diets, score }) {
    
     return (
-        <div className="recipe">
-            
+        <div className="card">   
             <div>
-                <img className="recipeImg" src={image} alt="Imagen Receta"/>
+                <img className="cardImg" src={image} alt="Imagen Receta"/>
             </div>
             <div>
-                <h2 className="recipeName">{name}</h2>            
+                <h1 className="cardName">{name}</h1>
             </div>
             <div>
-                <h2 className="recipeScore">Nivel: {score}</h2>            
-                <h2 className= 'titleDiets'> Tipos de Dietas </h2>
+                <p className="cardScore">Nivel: {score}</p>
             </div>
-            <div className="dietcointainer">
+            <div>            
+                <p className="cardTitleDiets">Tipos de Dietas</p>
+            </div>
+            <div className="contDiets">
                 {diets?.map(e => {
                     return (
-                        <p className="diets" key={prevId++}>{e}</p>
+                        <p className="cardTxtDiets" key={prevId++}> - {e} - </p>
                     )
                 })}            
-            </div>
+            </div> 
         </div>
     )
 };

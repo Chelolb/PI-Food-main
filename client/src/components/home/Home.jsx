@@ -63,46 +63,49 @@ export default function Home() {
 
     return (
         <div className='home'>
-            <Link to= '/recipe'><button className='addButton'>Nueva Receta</button></Link>
-            <h1>La fuente de placer para su paladar</h1>
-            <button className='refreshButton' onClick={e => {handleClick(e)}}>
-              Volver a cargar todos los componentes
-            </button>
-            <SearchBar/>                   {/* barra de busqueda */}
-        <div>
-            <select defaultValue = 'Alphabetical' className="select" name="Alfabetico" onChange={e => handleAlphabeticalSort(e)}>
-                    <option disabled>Alphabetical</option>
-                    <option value ='atoz'>A to Z</option>
-                    <option value ='ztoa'>Z to A</option>
-            </select>
-            <select defaultValue = 'Score' className="select" name="Numérico" onChange={e => handleScoreSort(e)}>
-                    <option disabled>Score</option>
-                    <option value ='asc'>From Min to Max</option>
-                    <option value ='desc'>From Max to Min</option>
-            </select>
-            <select  defaultValue = 'Todas' className="select" name="diets" onChange={e => handleDietTypeFilter(e)}>
-                    <option value ='todas'>Todas</option>
-                    <option value ='gluten free'>Gluten Free</option>
-                    <option value ='ketogenic'>Ketogenic</option>
-                    <option value ='vegetarian'>Vegetarian</option>
-                    <option value ='lacto vegetarian'>Lacto Vegetarian</option>
-                    <option value ='ovo vegetarian'>Ovo Vegetarian</option>
-                    <option value ='lacto ovo vegetarian'>Lacto Ovo Vegetarian</option>
-                    <option value ='vegan'>Vegan</option>
-                    <option value ='pescatarian'>Pescatarian</option>
-                    <option value ='paleolithic'>Paleo</option>
-                    <option value ='primal'>Primal</option>
-                    <option value ='fodmap friendly'>Fodmap Friendly</option>
-                    <option value ='whole 30'>Whole30</option>
-                    <option value ='dairy free'>Dairy Free</option>
-            </select>
-        </div>
-            <Paged                         // paginado
-                recipePerPage ={recipePerPage}
-                allRecipes = {allRecipes.length}
-                paginado = {paginado}
-            />
-        
+            <div className='header'>
+                <div className='grupo0'>
+                    <Link to= '/recipe'><button className='addButton'>Nueva Receta</button></Link>
+                    <h1 className='titleHome'>La fuente de placer para su paladar</h1>
+                    <button className='refreshButton' onClick={e => {handleClick(e)}}>
+                    Volver a cargar todos los componentes
+                    </button>
+                </div>
+                <div className='grupo1'>
+                    <select defaultValue = 'Alfabético' className="select" name="Alfabetico" onChange={e => handleAlphabeticalSort(e)}>
+                            <option disabled>Alfabético</option>
+                            <option value ='atoz'>A a Z</option>
+                            <option value ='ztoa'>Z a A</option>
+                    </select>
+                    <select defaultValue = 'Puntaje' className="select" name="Numérico" onChange={e => handleScoreSort(e)}>
+                            <option disabled>Puntaje</option>
+                            <option value ='asc'>Desde Min a Max</option>
+                            <option value ='desc'>Desde Max a Min</option>
+                    </select>
+                    <select  defaultValue = 'Todas' className="select" name="diets" onChange={e => handleDietTypeFilter(e)}>
+                            <option value ='todas'>Todas</option>
+                            <option value ='gluten free'>Gluten Free</option>
+                            <option value ='ketogenic'>Ketogenic</option>
+                            <option value ='vegetarian'>Vegetarian</option>
+                            <option value ='lacto vegetarian'>Lacto Vegetarian</option>
+                            <option value ='ovo vegetarian'>Ovo Vegetarian</option>
+                            <option value ='lacto ovo vegetarian'>Lacto Ovo Vegetarian</option>
+                            <option value ='vegan'>Vegan</option>
+                            <option value ='pescatarian'>Pescatarian</option>
+                            <option value ='paleolithic'>Paleo</option>
+                            <option value ='primal'>Primal</option>
+                            <option value ='fodmap friendly'>Fodmap Friendly</option>
+                            <option value ='whole 30'>Whole30</option>
+                            <option value ='dairy free'>Dairy Free</option>
+                    </select>
+                    <SearchBar/>                   {/* barra de busqueda */}
+                </div>
+                <Paged                         // paginado
+                    recipePerPage ={recipePerPage}
+                    allRecipes = {allRecipes.length}
+                    paginado = {paginado}
+                />
+            </div>
         <div className ="allrecipes">
         {!allRecipes.length ?
         (allRecipes.msg?
@@ -110,7 +113,7 @@ export default function Home() {
                 <h1>{allRecipes.msg}</h1>
             </div>  :
                 <img className='loading' src={loading} alt='Loading img'/>)
-            : 
+            :
             currentRecipes?.map((e) => {    // despliege de recetas
                 return(
                 <div key = {e.id}>
@@ -125,8 +128,8 @@ export default function Home() {
                     />
                 </Link>
                 </div>
-                );
-            })  
+                ); 
+            }) 
             }
         </div>
         </div>

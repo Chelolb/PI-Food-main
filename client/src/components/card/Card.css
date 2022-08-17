@@ -1,56 +1,69 @@
-.recipe{
-    width: 450px;
-    min-height: 500px;
+.card{
+    width: 200px;
+    height: 300px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 15px;
     padding: 5px;
-    box-shadow: 6px 6px 10px 2px rgb(54, 75, 190);
-    background-color: rgb(231, 218, 218, 0.3);
+    box-shadow: 3px 3px 5px 1px rgb(253, 253, 253);
+    background-color: rgb(255, 255, 255, 1);
 }
 
-.recipe:hover{
-    width: 470px;
-    min-height: 550px;
+.card:hover{
+    width: 205px;
+    height: 305px;
     border-radius: 5px;
-    margin: 10px;
+    margin: 15px;
     padding: 5px;
-    box-shadow: 12px 12px 20px 4px rgb(54, 75, 190);
-    background-color: rgb(231, 218, 218, 0.3);
+    box-shadow: 12px 12px 20px 4px rgb(253, 253, 253);
+    background-color: rgb(255, 255, 255, 0.6);
 }
 
-.recipeImg{
+.cardImg{
     height: auto;
-    width: 350px;
+    width: 190px;
     border-radius: 10px;
     box-shadow: 3px 3px 5px 1px rgb(54, 75, 190);
 }
 
-.recipeName{
-    color: #fdfdfd;
-    font-size: 18px; 
+.cardName{
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 14px; 
     font-style: italic;
     font-weight: 700;    
-    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+    text-shadow: 2px 2px 3px rgb(251, 251, 252);    
 }
 
-.recipeScore{
+.cardScore{ 
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px; 
+    font-weight: 700;    
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.cardTitleDiets{
     color: #fdfdfd;
-    font-size: 18px; 
+    font-size: 14px; 
     font-style: italic;
     font-weight: 700;    
-    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);
+    margin: 0%;
+    padding: 0%;     
 }
 
-.titleDiets{
-    color: #fdfdfd;
-    font-size: 16px; 
-    font-style: italic;
-    font-weight: 700;    
-    text-shadow: 3px 2px 3px rgb(61, 63, 201);    
+.contDiets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.diets{
+.cardTxtDiets{
     color: black;
-    font-size: 16px; 
-    font-style: italic;    
+    font-size: 12px; 
+    font-style: italic;
+    margin: 0%;
+    padding: 0%;    
 }
