@@ -103,112 +103,119 @@ export default function AddRecipe(){
 
     return(
         <div className= 'addRecipe'>
-            <Link to= '/home'><button className="goBackButton">Home</button></Link>
-            <h1 className= 'title'>¡Crea tu propia receta! </h1>
             <form className= 'form' onSubmit={(e) => HandleSubmit(e)}>
-            <div className="marcForm">
-                <div>
-                    <label className='label'>Nombre:</label>
-                    <input
-                        type = 'text'
-                        value = {input.name}
-                        name = 'name'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.name && (
-                        <p className='errorMsg'>{errors.name}</p>
-                    )}
+                <div className="marcForm1">
+                    <div className="headerAdd">
+                        <h1 className= 'title'>¡Crea tu propia receta! </h1>
+                    </div>
+                    <div className="marcFormIz">
+                        <div className="item">
+                            <label className='label'>Nombre:</label>
+                            <input
+                                className="inputForm"
+                                type = 'text'
+                                value = {input.name}
+                                name = 'name'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.name && (
+                                <p className='errorMsg'>{errors.name}</p>
+                            )}
+                        </div>
+                        <div>
+                            <label className='label'>Resumen:</label>
+                            <textarea
+                                className="inputForm1"
+                                type = 'text' rows="5" cols="40"
+                                value = {input.summary}
+                                name = 'summary'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.summary && (
+                                <p className='errorMsg'>{errors.summary}</p>
+                            )}
+                        </div>
+                        <div>
+                            <label className='label'>Nivel:</label>
+                            <input
+                                className="inputForm"
+                                type = 'text'
+                                value = {input.score}
+                                name = 'score'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.score && (
+                                <p className='errorMsg'>{errors.score}</p>
+                            )}
+                        </div>                
+                        <div>
+                            <label className='label'>Nivel Saludable:</label>
+                            <input
+                                className="inputForm"
+                                type = 'text'
+                                value = {input.healthscore}
+                                name = 'healthscore'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.healthscore && (
+                                <p className='errorMsg'>{errors.healthscore}</p>
+                            )}
+                        </div>
+                        <div>
+                            <label className='label'>Imagen:</label>
+                            <input
+                                className="inputForm"
+                                type = 'text'
+                                value = {input.image}
+                                name = 'image'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.image && (
+                                <p className='errorMsg'>{errors.image}</p>
+                            )}
+                        </div>
+                    </div>
+                    <div className="marcFormDe">  
+                        <div>
+                            <label className='label'>Pasos:</label>
+                            <textarea
+                                className="inputForm2"
+                                type = 'text' rows="5" cols="40"
+                                value = {input.steps}
+                                name = 'steps'
+                                onChange={(e) => handleChange(e)}
+                            />
+                            {errors.steps && (
+                                <p className='errorMsg'>{errors.steps}</p>
+                            )}
+                        </div> 
+                        <div className="titleDiet">
+                            <label className='titleDiets'>Tipos de dietas:</label>
+                        </div>
+                        <div className="checkSelect">
+                            {diets?.map(d =>{
+                                return (
+                                    <div key={d.id} className="checks">
+                                        <label className="dietTypes">{d.name}</label>
+                                        <input className="checks" 
+                                                type="checkbox" 
+                                                name={d.name} 
+                                                value={d.name}  
+                                                onChange={e => handleCheckBox(e)}/>
+                                    </div>
+                                    )
+                                })
+                            }
+                            {errors.diets && (
+                                <p className="errorsMsg">{errors.diets}</p>
+                            )}
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <label className='label'>Resumen:</label>
-                    <input className="largeTex"
-                        type = 'text'
-                        value = {input.summary}
-                        name = 'summary'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.summary && (
-                        <p className='errorMsg'>{errors.summary}</p>
-                    )}
-                </div>
-                <div>
-                    <label className='label'>Nivel:</label>
-                    <input
-                        type = 'text'
-                        value = {input.score}
-                        name = 'score'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.score && (
-                        <p className='errorMsg'>{errors.score}</p>
-                    )}
-                </div>                
-                <div>
-                    <label className='label'>Nivel Saludable:</label>
-                    <input
-                        type = 'text'
-                        value = {input.healthscore}
-                        name = 'healthscore'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.healthscore && (
-                        <p className='errorMsg'>{errors.healthscore}</p>
-                    )}
-                </div>
-                <div>
-                    <label className='label'>Pasos:</label>
-                    <input
-                        type = 'text' rows="5" cols="40"
-                        value = {input.steps}
-                        name = 'steps'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.steps && (
-                        <p className='errorMsg'>{errors.steps}</p>
-                    )}
-                </div>
-                <div>
-                    <label className='label'>Imagen:</label>
-                    <input className="inImg"
-                        type = 'text'
-                        value = {input.image}
-                        name = 'image'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.image && (
-                        <p className='errorMsg'>{errors.image}</p>
-                    )}
-                </div>
-            </div>
-                <div>
-                <label className='titleDiets'>Tipos de dietas:</label>
-                </div>
-                <div className="checkSelect">
-                   
-                    {diets?.map(d =>{
-                        return (
-                            <div key={d.id} className="checks">
-                                <label className="dietTypes">{d.name}</label>
-                                <input className="checks" 
-                                        type="checkbox" 
-                                        name={d.name} 
-                                        value={d.name}  
-                                        onChange={e => handleCheckBox(e)}/>
-                            </div>
-                            )
-                        })
-                    }
-                    {errors.diets && (
-                        <p className="errorsMsg">{errors.diets}</p>
-                    )}
-                </div>
-                <div>
-                    <button 
-                        className= 'submitButton'
-                        type= 'submit'>
-                        Crear Receta
-                    </button>
-                </div>                                                                                         
+                    <Link to= '/home'><button className="goBackButton">Home</button></Link>
+                    <button className= 'submitButton' type= 'submit'>Crear Receta</button>
+                </div>                                                                                        
             </form>
         </div>
     )

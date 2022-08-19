@@ -32,8 +32,10 @@ export default function Detail(props) {
                         recipeDetails.image : 
                         'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} alt="Pic not found"/>
                     </div>
-                    <div className="ddsh1">
-                        <h3 className="score">Nivel Saludable: {recipeDetails.healthscore}</h3>
+                    <div className="ddsh3">
+                        <h1 className='simbolScore'>❤</h1>
+                        <h1 className='separator'> - </h1>
+                        <h1 className="scoreDetal">{recipeDetails.healthscore}</h1>
                     </div>                    
                 </div>
                 <div className='marcSubInt1'>

@@ -26,7 +26,7 @@ router.get("/", async function (req, res) {
       let diets = e["diets"];
       let formated = [];
       diets.map((d) => formated.push(d["name"]));
-      let obj = RecipeFormater(e.id, e.name, e.score, e.image, formated);
+      let obj = RecipeFormater(e.id, e.name, e.score, e.image, formated, e.creadoPor);
       dbFormated.push(obj);
     });
 
@@ -70,7 +70,7 @@ router.get("/", async function (req, res) {
       let diets = e["diets"];
       let formated = [];
       diets.map((d) => formated.push(d["name"]));
-      let obj = RecipeFormater(e.id, e.name, e.score, e.image, formated);
+      let obj = RecipeFormater(e.id, e.name, e.score, e.image, formated, e.creadoPor);
       dbFormated.push(obj);
     });
   
