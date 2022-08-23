@@ -45,13 +45,12 @@
     text-align: center;
     padding: 10px 25px;
     margin: 0px;
-    border-radius: 10px;
-    box-shadow: 2px 3px 1px rgb(3, 158, 185);;
+    border-radius: 20px;
+    box-shadow: 3px 5px 1px rgb(3, 158, 185);;
     cursor: pointer;
 }
 
 .addButton:hover {
-    color: black;
     box-shadow: 1px 1px 1px rgb(3, 158, 185);
 }
 
@@ -62,13 +61,12 @@
     text-align: center;
     padding: 10px 25px;
     margin: 0px;
-    border-radius: 10px;
-    box-shadow: 2px 3px 1px rgb(3, 158, 185);;
+    border-radius: 20px;
+    box-shadow: 3px 5px 1px rgb(3, 158, 185);;
     cursor: pointer;
 }
 
 .refreshButton:hover {
-    color: black;
     box-shadow: 1px 1px 1px rgb(3, 158, 185);
 }
 
@@ -82,10 +80,11 @@
 }
 
 .allrecipes{
-    min-height: 600px;
+    /*min-height: 1000px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 200px;
 }
 
 .linkRecetas{

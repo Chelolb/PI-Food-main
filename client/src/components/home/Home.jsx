@@ -100,11 +100,13 @@ export default function Home() {
                     </select>
                     <SearchBar/>                   {/* barra de busqueda */}
                 </div>
-                <Paged                         // paginado
-                    recipePerPage ={recipePerPage}
-                    allRecipes = {allRecipes.length}
-                    paginado = {paginado}
-                />
+                <div>
+                    <Paged                         // paginado
+                        recipePerPage ={recipePerPage}
+                        allRecipes = {allRecipes.length}
+                        paginado = {paginado}
+                    />
+                </div>
             </div>
         <div className ="allrecipes">
         {!allRecipes.length ?

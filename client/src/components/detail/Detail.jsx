@@ -72,11 +72,15 @@ export default function Detail(props) {
                 <div className='marcSubInt2'>
                     <div className="ddsh2">
                         <h3 className="deTexts1">Resumen: </h3>
-                        <p className="summary">{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
+                        <div className='contSumary'>
+                            <p className="sumarytxt">{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
+                        </div>
                     </div>
                     <div className="ddsh2">
                         <h3 className="deTexts1">Pasos: </h3>
-                        <p className="steps">{recipeDetails.instructions?.replace(/<[^>]*>/g, '')}</p>
+                        <div className='contSteps'>
+                            <p className="stepstxt">{recipeDetails.instructions?.replace(/<[^>]*>/g, '')}</p>
+                        </div>
                     </div>
                 </div>
             </div>

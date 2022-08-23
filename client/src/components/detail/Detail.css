@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    min-height: 700px;
+    min-height: 1000px;
     display:flex;
     flex-direction: column;
 }
@@ -54,7 +54,7 @@
 }
 
 .recipeName{
-    font-size: 24px; 
+    font-size: 30px; 
     color: #fdfdfd;
     font-style: italic;
     font-weight: 700;    
@@ -141,6 +141,42 @@
     margin: 5px;
 }
 
+.contSumary{
+    border: solid gray;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 5px 1px rgb(125, 125, 126, 0.9);
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.sumarytxt{
+    font-family: sans-serif;    
+    color:black;
+    font-size: 12px;
+    margin: 10px;
+}
+
+.contSteps{
+    border: solid gray;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 5px 1px rgb(125, 125, 126, 0.9);
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.stepstxt{
+    font-family: sans-serif;    
+    color:black;
+    font-size: 14px;
+    margin: 10px;
+}
+
 .simbolScore{
     height: 30px;
     text-align: center;
@@ -168,24 +204,6 @@
     color: white;
 }
 
-.summary{
-    font-family: sans-serif;    
-    color:black;
-    font-size: 16px;   
-}
-
-.steps{
-    font-family: sans-serif;    
-    color:black;
-    font-size: 16px;         
-}
-
-.diets{
-    font-family: sans-serif;    
-    color:black;
-    font-size: 16px;         
-}
-
 .backButton{
     color: black;
     background-color: rgb(231, 218, 218);
@@ -193,8 +211,8 @@
     text-align: center;
     padding: 10px 25px;
     margin: 10px;
-    border-radius: 3px;
-    box-shadow: 3px 3px 5px 1px rgb(3, 158, 185);
+    border-radius: 20px;
+    box-shadow: 3px 5px 1px rgb(3, 158, 185);
     cursor: pointer;
 }
 

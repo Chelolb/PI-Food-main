@@ -25,8 +25,8 @@
     text-align: center;
     padding: 10px 25px;
     margin: 100px;
-    border-radius: 3px;
-    box-shadow: 3px 3px 5px 1px rgb(3, 158, 185);
+    border-radius: 20px;
+    box-shadow: 3px 5px 1px rgb(3, 158, 185);
     cursor: pointer;
 }
 
