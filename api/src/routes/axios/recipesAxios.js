@@ -65,11 +65,16 @@ async function recipeId(id) {
   let data = item.data;
 
   const dietList = [...data.diets];
+
+  //console.log(data.diets, dietList);
+
   data.vegetarian && dietList.push("vegetarian");
   data.vegan && dietList.push("vegan");
   data.glutenFree && dietList.push("gluten free");
 
   let filtered = [...new Set(dietList)];
+
+  //console.log(filtered);
 
   let stepsFormated = [];
   data.analyzedInstructions.map((item) => {

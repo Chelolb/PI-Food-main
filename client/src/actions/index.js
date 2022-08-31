@@ -3,7 +3,7 @@ const ROUTE =  'https://back-food-pi.herokuapp.com' // Para el Deploy
 
 export function getRecipes() {
     return async function(dispatch) {
-        var json = await axios.get('http://localhost:3001/recipes'); // obtiene recetas en general
+        var json = await axios.get('http://localhost:3001/recipes/name/'); // obtiene recetas en general
         //var json = await axios.get(ROUTE + '/recipes'); // obtiene recetas en general (Deploy)
         return dispatch({
             type: 'GET_RECIPES', 
@@ -15,7 +15,7 @@ export function getRecipes() {
 export function getRecipeByName(name){   // obtiene recetas por nombre
     return async function(dispatch){
         try{
-            var json = await axios.get('http://localhost:3001/recipes?name=' + name);
+            var json = await axios.get('http://localhost:3001/recipes/name/?name=' + name);
             //var json = await axios.get(ROUTE + '/recipes?name=' + name); // (Deploy)
 
             return dispatch ({
@@ -75,7 +75,7 @@ export function orderByScore(payload){
 export function getRecipeDetail(id){    // obtiene detalles
     return async function(dispatch){
         try{
-            var json = await axios.get('http://localhost:3001/recipes//' + id);
+            var json = await axios.get('http://localhost:3001/recipes/detail/' + id);
             //var json = await axios.get(ROUTE + '/recipes//' + id); // (Deploy)
 
             return dispatch ({

@@ -13,7 +13,22 @@ const {
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
 
-//  Conexion con DB PostgreSQL alojada en Heroku
+// postgres://hvnicpub:Z8rUAQo-5SXuh6pC4FxWlu6JCdjyEZjJ@heffalump.db.elephantsql.com/hvnicpub
+
+// //  Conexion con DB PostgreSQL alojada en ElephantSQL
+// const sequelize = new Sequelize(`postgres://hvnicpub:Z8rUAQo-5SXuh6pC4FxWlu6JCdjyEZjJ@heffalump.db.elephantsql.com/hvnicpub`, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+
+//   dialectOptions: {               // requerido para conectar a Heroku DB Postgresql
+//     ssl:{                         //
+//       require:true,               //
+//       rejectUnauthorized: false   //
+//     }                             //
+//   }                               //
+// });
+
+//  Conexion con DB PostgreSQL alojada en servidor externo
 const sequelize = new Sequelize(`${DB_URI}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed

@@ -22,14 +22,14 @@ const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  // server.listen(3001, () => {
-  //   console.log('%s listening at 3001'); // eslint-disable-line no-console
-  // });
-  server.listen(process.env.PORT || 3001, () => {
-    console.log('listening at', process.env.PORT || '3001'); // eslint-disable-line no-console
-  });  
+  server.listen(3001, () => {
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  });
+  // server.listen(process.env.PORT || 3001, () => {
+  //   console.log('listening at', process.env.PORT || '3001'); // eslint-disable-line no-console
+  // });  (para el deploy)
 });
 
-//lineas originales en Package.json
+//lineas originales en Package.json (para uso local)
 //"start": "nodemon -L",
 //"test": "mocha -w ./tests/**/*.spec.js"
