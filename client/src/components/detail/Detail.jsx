@@ -2,13 +2,14 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipeDetail } from '../../actions/index.js';
-import { Link } from 'react-router-dom'
+import { link, useHistory } from 'react-router-dom'
 import "./Detail.css";
 
 
 export default function Detail(props) {
     const dispatch = useDispatch();
     const id = props.match.params.id;
+    const history = useHistory()
     
     
     useEffect(() => {
@@ -16,8 +17,17 @@ export default function Detail(props) {
     }, [dispatch, id]);
     
     
-    const recipeDetails = useSelector(state => state.detail);
+    let recipeDetails = useSelector(state => state.detail);
     
+
+    function Handlesubmit(e){
+        e.preventDefault()
+        recipeDetails = {};
+        console.log(recipeDetails)
+        history.push('/home')
+        }
+
+
     return (
         
         <div className="details" key={id}>            
@@ -85,8 +95,12 @@ export default function Detail(props) {
                 </div>
             </div>
         </div>
-        <div>    
-            <Link to="/home"><button className="backButton">Volver</button></Link>
+        <div> 
+        <button className = 'botonBuscar'
+                type ='submit'
+                onClick={(e) => Handlesubmit(e)}>Volver
+        </button>
+         {/*   <Link to="/home"><button className="backButton">Volver</button></Link>  */}
         </div>    
         </div>
 

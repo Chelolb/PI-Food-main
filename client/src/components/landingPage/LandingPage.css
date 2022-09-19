@@ -18,6 +18,16 @@
     margin: 75;
 }
 
+.aniLanding{
+    margin-top: 10px;
+    background-color: rgba(248, 220, 169, 0.7);
+    box-shadow: 6px 6px 10px 2px rgb(248, 220, 169, 0.8);
+    width: 400px;
+    height: auto;
+    vertical-align: top;
+    border-radius: 15px;   
+}
+
 .homeButton{
     color: black;
     background-color: rgb(231, 218, 218);

@@ -66,7 +66,6 @@ async function recipeId(id) {
 
   const dietList = [...data.diets];
 
-  //console.log(data.diets, dietList);
 
   data.vegetarian && dietList.push("vegetarian");
   data.vegan && dietList.push("vegan");
@@ -74,7 +73,6 @@ async function recipeId(id) {
 
   let filtered = [...new Set(dietList)];
 
-  //console.log(filtered);
 
   let stepsFormated = [];
   data.analyzedInstructions.map((item) => {

@@ -2,9 +2,7 @@ const router = require("express").Router();
 const Sequelize = require("sequelize");
 const { Recipe, Diet } = require("../../db");
 const { recipeId } = require("../axios/recipesAxios");
-//const { FoCDietG } = require("../controllers/dietFoC");
 const Op = Sequelize.Op;
-//const RecipeFormater = require("../controllers/FormatRecipe");
 
 
 router.get("/:id", async function (req, res) {// Busqueda por ID...

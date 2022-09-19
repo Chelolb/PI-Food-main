@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes, filterRecipeByDiets, orderByName, orderByScore } from '../../actions';
+import { getRecipes, getDiets, filterRecipeByDiets, orderByName, orderByScore } from '../../actions';
 import { Link } from 'react-router-dom';
 import Card from '../card/Card.jsx';
 import Paged from '../paged/Paged';
@@ -10,10 +10,13 @@ import loading from '../../images/loading.gif';
 import './Home.css';
 
 
-export default function Home() {
+export default function Home( props ) {
+
+    //console.log(props);
     
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.recipes);
+    const diets = useSelector((state) => state.diets);
     const [order, setOrder] = useState('');
     const[currentPage, setCurrentPage] = useState(1);
     
@@ -29,16 +32,22 @@ export default function Home() {
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+    
+    useEffect(() => {      // obtiene dietas al cargar home
+        dispatch(getDiets())
+    }, [dispatch]);
 
-
-    useEffect (()=>{    // obtiene recetas al cargar
+    useEffect (()=>{    // obtiene recetas al cargar home
         dispatch(getRecipes())
     },[dispatch])
+
+
 
     function handleClick(e) {   // Boton refresh
         e.preventDefault();
         dispatch(getRecipes());
     }
+
 
     function handleDietTypeFilter(e) {
         e.preventDefault();
@@ -83,20 +92,33 @@ export default function Home() {
                             <option value ='desc'>Desde Max a Min</option>
                     </select>
                     <select  defaultValue = 'Todas' className="select" name="diets" onChange={e => handleDietTypeFilter(e)}>
-                            <option value ='todas'>Todas</option>
-                            <option value ='gluten free'>Gluten Free</option>
-                            <option value ='ketogenic'>Ketogenic</option>
-                            <option value ='vegetarian'>Vegetarian</option>
-                            <option value ='lacto vegetarian'>Lacto Vegetarian</option>
-                            <option value ='ovo vegetarian'>Ovo Vegetarian</option>
-                            <option value ='lacto ovo vegetarian'>Lacto Ovo Vegetarian</option>
-                            <option value ='vegan'>Vegan</option>
-                            <option value ='pescatarian'>Pescatarian</option>
-                            <option value ='paleolithic'>Paleo</option>
-                            <option value ='primal'>Primal</option>
-                            <option value ='fodmap friendly'>Fodmap Friendly</option>
-                            <option value ='whole 30'>Whole30</option>
-                            <option value ='dairy free'>Dairy Free</option>
+                    <option value ='todas'>Todas</option>
+
+                    {!diets.length ?
+                        <>
+                        <option value="gluten free">Gluten Free</option>
+                        <option value="ketogenic">Keto</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="lacto vegetarian">Lacto-Vegetarian</option>
+                        <option value="ovo vegetarian">Ovo-Vegetarian</option>
+                        <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="pescetarian">Pescetarian</option>
+                        <option value="paleolithic">Paleo</option>
+                        <option value="primal">Primal</option>
+                        <option value="low fodmap">Low FODMAP</option>
+                        <option value="whole 30">Whole30</option>
+                        <option value="dairy free">Dairy Free</option>
+                        </>
+                        :
+                        diets.map(d => {       // mapea las opciones de dietas para el select
+                                    return (
+                                        //<div >
+                                            <option key={d.id} value={d.name}>{d.name}</option>
+
+                                        )
+                                    })
+                        }      
                     </select>
                     <SearchBar/>                   {/* barra de busqueda */}
                 </div>

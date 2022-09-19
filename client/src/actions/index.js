@@ -1,10 +1,11 @@
 import axios from 'axios';
-const ROUTE =  'https://back-food-pi.herokuapp.com' // Para el Deploy
+const ROUTE = 'http://localhost:3001'
+//const ROUTE = 'https://back-food-pi.herokuapp.com' // Para el Deploy
 
 export function getRecipes() {
     return async function(dispatch) {
-        var json = await axios.get('http://localhost:3001/recipes/name/'); // obtiene recetas en general
-        //var json = await axios.get(ROUTE + '/recipes'); // obtiene recetas en general (Deploy)
+        //var json = await axios.get('http://localhost:3001/recipes/name/'); // obtiene recetas en general
+        var json = await axios.get(ROUTE + '/recipes/name'); // obtiene recetas en general
         return dispatch({
             type: 'GET_RECIPES', 
             payload: json.data
@@ -15,8 +16,8 @@ export function getRecipes() {
 export function getRecipeByName(name){   // obtiene recetas por nombre
     return async function(dispatch){
         try{
-            var json = await axios.get('http://localhost:3001/recipes/name/?name=' + name);
-            //var json = await axios.get(ROUTE + '/recipes?name=' + name); // (Deploy)
+            //var json = await axios.get('http://localhost:3001/recipes/name/?name=' + name);
+            var json = await axios.get(ROUTE + '/recipes/name?name=' + name); // // obtiene recetas por nombre
 
             return dispatch ({
                 type: 'GET_RECIPE_BY_NAME',
@@ -31,8 +32,8 @@ export function getRecipeByName(name){   // obtiene recetas por nombre
 
 export function getDiets() {
     return async function(dispatch) {
-        var info = await axios.get('http://localhost:3001/diets', {}); // obtiene dietas    
-        //var info = await axios.get(ROUTE + '/diets', {}); // obtiene dietas  (Deploy)
+        //var info = await axios.get('http://localhost:3001/diets', {}); // obtiene dietas    
+        var info = await axios.get(ROUTE + '/diets', {}); // obtiene dietas
 
 
         return dispatch({
@@ -44,8 +45,8 @@ export function getDiets() {
 
 export function postRecipe(payload){
     return async function(dispatch) {
-        var response = await axios.post('http://localhost:3001/recipe', payload); // guarda receta en bd 
-        //var response = await axios.post(ROUTE + '/recipe', payload); // guarda receta en bd (Deploy)
+        //var response = await axios.post('http://localhost:3001/recipe', payload); // guarda receta en bd 
+        var response = await axios.post(ROUTE + '/recipe', payload); // guarda receta en bd
         console.log(response)
         return response
     }
@@ -75,8 +76,8 @@ export function orderByScore(payload){
 export function getRecipeDetail(id){    // obtiene detalles
     return async function(dispatch){
         try{
-            var json = await axios.get('http://localhost:3001/recipes/detail/' + id);
-            //var json = await axios.get(ROUTE + '/recipes//' + id); // (Deploy)
+            //var json = await axios.get('http://localhost:3001/recipes/detail/' + id);
+            var json = await axios.get(ROUTE + '/recipes/detail/' + id); // obtiene receta por ID
 
             return dispatch ({
                 type: 'GET_RECIPE_DETAIL',
