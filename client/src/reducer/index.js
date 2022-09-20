@@ -93,6 +93,12 @@ function rootReducer (state = initialState, action){
                     ...state,
                     detail: action.payload
                 }
+            case 'CLEAN_DETAIL':
+                let clean = []
+                return{
+                    ...state,
+                    detail: clean
+                }
             default:
                 return state;
         }

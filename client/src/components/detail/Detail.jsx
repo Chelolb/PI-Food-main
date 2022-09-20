@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipeDetail } from '../../actions/index.js';
-import { link, useHistory } from 'react-router-dom'
+import { getRecipeDetail, cleanDetail } from '../../actions/index.js';
+import { useHistory } from 'react-router-dom'
+import searching from '../../images/searching.gif';
 import "./Detail.css";
 
 
@@ -22,16 +23,19 @@ export default function Detail(props) {
 
     function Handlesubmit(e){
         e.preventDefault()
-        recipeDetails = {};
-        console.log(recipeDetails)
+
+        dispatch(cleanDetail())
+
         history.push('/home')
-        }
+    }
 
 
     return (
-        
-        <div className="details" key={id}>            
 
+        <div className="details" key={id}>
+
+{/*       {Object.entries(recipeDetails).length ? }  Si ya estan los detalles, se muestran */}
+    
         <div className='marcDetail' >
             <h1 className="recipeName">{recipeDetails.name}</h1>
             <div className='marcoInt'>   
@@ -40,7 +44,8 @@ export default function Detail(props) {
                         <img className="detailImg" 
                         src={recipeDetails.image ? 
                         recipeDetails.image : 
-                        'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} alt="Pic not found"/>
+                        searching}
+                        alt="Pic not found"/>
                     </div>
                     <div className="ddsh3">
                         <h1 className='simbolScore'>❤</h1>
@@ -96,12 +101,11 @@ export default function Detail(props) {
             </div>
         </div>
         <div> 
-        <button className = 'botonBuscar'
+            <button className = 'botonBuscar'
                 type ='submit'
                 onClick={(e) => Handlesubmit(e)}>Volver
-        </button>
-         {/*   <Link to="/home"><button className="backButton">Volver</button></Link>  */}
-        </div>    
+            </button>
+        </div>
         </div>
 
     )      

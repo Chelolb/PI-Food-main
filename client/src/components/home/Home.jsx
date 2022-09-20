@@ -113,9 +113,7 @@ export default function Home( props ) {
                         :
                         diets.map(d => {       // mapea las opciones de dietas para el select
                                     return (
-                                        //<div >
                                             <option key={d.id} value={d.name}>{d.name}</option>
-
                                         )
                                     })
                         }      
