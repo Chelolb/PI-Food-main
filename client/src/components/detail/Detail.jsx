@@ -26,7 +26,7 @@ export default function Detail(props) {
 
         dispatch(cleanDetail())
 
-        history.push('/home')
+        history.push('/home/')
     }
 
 

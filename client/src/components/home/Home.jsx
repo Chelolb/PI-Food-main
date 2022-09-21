@@ -37,10 +37,10 @@ export default function Home( props ) {
         dispatch(getDiets())
     }, [dispatch]);
 
-    useEffect (()=>{    // obtiene recetas al cargar home
-        dispatch(getRecipes())
-    },[dispatch])
 
+    // useEffect (()=>{    // obtiene recetas al cargar home
+    //     dispatch(getRecipes())
+    //     },[dispatch])
 
 
     function handleClick(e) {   // Boton refresh
