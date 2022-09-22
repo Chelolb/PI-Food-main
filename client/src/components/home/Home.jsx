@@ -77,7 +77,7 @@ export default function Home( props ) {
                     <Link to= '/recipe'><button className='addButton'>Nueva Receta</button></Link>
                     <h1 className='titleHome'>La fuente de placer para su paladar</h1>
                     <button className='refreshButton' onClick={e => {handleClick(e)}}>
-                    Volver a cargar todos los componentes
+                    Recargar Recetas
                     </button>
                 </div>
                 <div className='grupo1'>
