@@ -56,7 +56,7 @@ export default function Detail(props) {
                 <div className='marcSubInt1'>
                     {recipeDetails.dishTypes ?
                     <div className="ddsh1">
-                        <h2 className="deTexts">Tipos de Plato: </h2>
+                        <h2 className="deTexts">Tipos de Plato</h2>
                         <div className='contdishes'> 
                         {recipeDetails.dishTypes?.map(e => {
                             return(
@@ -69,7 +69,7 @@ export default function Detail(props) {
                     }
 
                     <div className="ddsh1">
-                        <h2 className="deTexts">Tipos de Dieta: </h2>
+                        <h2 className="deTexts">Tipos de Dieta</h2>
                         <div className='contdiets'>
                         {recipeDetails.diets ? recipeDetails.diets.map(e => {
                             return(
@@ -86,13 +86,13 @@ export default function Detail(props) {
                 </div>
                 <div className='marcSubInt2'>
                     <div className="ddsh2">
-                        <h3 className="deTexts1">Resumen: </h3>
+                        <h3 className="deTexts1">Resumen</h3>
                         <div className='contSumary'>
                             <p className="sumarytxt">{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
                         </div>
                     </div>
                     <div className="ddsh2">
-                        <h3 className="deTexts1">Pasos: </h3>
+                        <h3 className="deTexts1">Pasos</h3>
                         <div className='contSteps'>
                             <p className="stepstxt">{recipeDetails.instructions?.replace(/<[^>]*>/g, '')}</p>
                         </div>

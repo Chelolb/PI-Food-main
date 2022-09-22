@@ -119,6 +119,7 @@
     color:black;
     font-size: 16px;
     margin: 5px;
+    overflow-wrap: break-word;
 }
 
 .contdiets{
@@ -139,6 +140,7 @@
     color:black;
     font-size: 16px;
     margin: 5px;
+    overflow-wrap: break-word;
 }
 
 .contSumary{
