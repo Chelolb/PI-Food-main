@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Card from '../card/Card.jsx';
 import Paged from '../paged/Paged';
 import SearchBar from '../searchBar/SearchBar';
+import Footer from '../footer/Footer';
 import loading from '../../images/loading.gif';
 import './Home.css';
 
@@ -38,9 +39,10 @@ export default function Home( props ) {
     }, [dispatch]);
 
 
-    // useEffect (()=>{    // obtiene recetas al cargar home
-    //     dispatch(getRecipes())
-    //     },[dispatch])
+
+    if(!allRecipes.length){ // Si no hay recetas, obtiene recetas al cargar home    
+            dispatch(getRecipes())
+    }
 
 
     function handleClick(e) {   // Boton refresh
@@ -128,33 +130,35 @@ export default function Home( props ) {
                     />
                 </div>
             </div>
-        <div className ="allrecipes">
-        {!allRecipes.length ?
-        (allRecipes.msg?
-            <div>
-                <h1>{allRecipes.msg}</h1>
-            </div>  :
-                <img className='loading' src={loading} alt='Loading img'/>)
-            :
-            currentRecipes?.map((e) => {    // despliege de recetas
-                return(
-                <div key = {e.id}>
-                <Link className="linkRecetas" to={`/home/${e.id}`}>      
-                    <Card  
-                        key = {e.id}
-                        id = {e.id} 
-                        image = {e.image} 
-                        name ={e.name}  
-                        diets = {e.diets} 
-                        score = {e.score}
-                    />
-                </Link>
-                </div>
-                ); 
-            }) 
-            }
+            <div className ="allrecipes">
+            {!allRecipes.length ?
+            (allRecipes.msg?
+                <div>
+                    <h1>{allRecipes.msg}</h1>
+                </div>  :
+                    <img className='loading' src={loading} alt='Loading img'/>)
+                :
+                currentRecipes?.map((e) => {    // despliege de recetas
+                    return(
+                    <div key = {e.id}>
+                    <Link className="linkRecetas" to={`/home/${e.id}`}>      
+                        <Card  
+                            key = {e.id}
+                            id = {e.id} 
+                            image = {e.image} 
+                            name ={e.name}  
+                            diets = {e.diets} 
+                            score = {e.score}
+                        />
+                    </Link>
+                    </div>
+                    ); 
+                }) 
+                }
+            </div>
+            <div className='footer'>
+                <Footer/>
+            </div> 
         </div>
-        </div>
-
     )
 }

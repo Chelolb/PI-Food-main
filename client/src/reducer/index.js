@@ -3,7 +3,8 @@ const initialState = {
     recipes: [],
     allRecipes: [],
     diets: [],
-    detail: []
+    detail: [],
+    ipClient: []
 }
 
 function rootReducer (state = initialState, action){
@@ -98,6 +99,11 @@ function rootReducer (state = initialState, action){
                 return{
                     ...state,
                     detail: clean
+                }
+            case 'GET_IP':
+                return{
+                    ...state,
+                    ipClient: action.payload
                 }
             default:
                 return state;

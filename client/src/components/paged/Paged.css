@@ -19,15 +19,16 @@
 
 .botonPagina {
     height: 30px;
-    width: 50px;
+    width: 30px;
     display: flex;
     flex: 1 1;
     justify-content: center;
     align-items: center;
     margin: 4px;
 
-	box-shadow: 3px 5px 1px rgb(3, 158, 185);
+	box-shadow: 3px 5px 1px rgb(135, 135, 135);
 	padding: 0 20px 4px;
+    border: none;
 	border-radius: 7px;
 	background-color: rgb(231, 218, 218);
 
@@ -36,12 +37,5 @@
 }
 
 .botonPagina:hover{
-
-	box-shadow: 1px 2px 1px rgb(3, 158, 185);
-	padding: 0 20px 4px;
-	border-radius: 7px;
-	background-color: rgb(231, 218, 218);
-
-    cursor: pointer;
-    user-select: none;
+	box-shadow: 1px 2px 1px rgb(135, 135, 135);
 }

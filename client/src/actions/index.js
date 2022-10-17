@@ -107,3 +107,19 @@ export function getRecipeDetail(id){    // obtiene detalles
         }
     }
 }
+
+export function getIpClient(){      // obtiene IP cliente
+    return async function(dispatch){
+        try {
+            var response = await axios.get(ROUTE + '/ip', {});
+
+            return dispatch({
+                type: 'GET_IP', 
+                payload: response.data
+            });  
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}

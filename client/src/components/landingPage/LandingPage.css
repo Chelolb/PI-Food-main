@@ -1,5 +1,5 @@
 .landing{
-    background-image: url('../../images/background1.jpg');
+    background-image: url('../../images/background6.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -7,6 +7,9 @@
     min-height: 50vw;
     display:flex;
     flex-direction: column;
+    align-items: center;
+    align-content: center;
+    /*background-image: linear-gradient(to bottom, #dfec51, #85ef84, #00e8bd, #00dae8, #00c6f9, #3bc4fa, #55c1f9, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
 }
 
 .welcomeMsg{
@@ -16,6 +19,30 @@
     font-weight: 700;    
     text-shadow: 3px 2px 3px rgb(61, 63, 201);
     margin: 75;
+}
+
+.infoMsg{
+    color: white;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);
+    margin: 75;
+}
+
+.barMsg{
+    background-color: white;
+    height: 45px;
+    width: 250px;
+    align-items: center;
+    align-content: center;
+    color: green;
+    margin-left: 100px;
+    font-size: 25px;
+    font-style: italic;
+    text-align: left;
+    font-weight: 700;    
+    text-shadow: 3px 2px 3px rgb(61, 63, 201);
 }
 
 .aniLanding{

@@ -21,7 +21,7 @@ export default function Detail(props) {
     let recipeDetails = useSelector(state => state.detail);
     
 
-    function Handlesubmit(e){
+    function Handleback(e){
         e.preventDefault()
 
         dispatch(cleanDetail())
@@ -101,9 +101,9 @@ export default function Detail(props) {
             </div>
         </div>
         <div> 
-            <button className = 'botonBuscar'
+            <button className = 'backButton'
                 type ='submit'
-                onClick={(e) => Handlesubmit(e)}>Volver
+                onClick={(e) => Handleback(e)}>Volver
             </button>
         </div>
         </div>
